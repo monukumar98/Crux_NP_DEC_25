@@ -15,7 +15,6 @@ public class Shopping_Game {
 			// t--;
 		}
 	}
-
 	public static void Game(int m, int n) {
 		int phone = 1;
 		int a = 0;
