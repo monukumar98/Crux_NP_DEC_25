@@ -6,21 +6,22 @@ public class Find_Pivot_Index2 {
 		System.out.println(Pivot_Index(arr));
 
 	}
+
 	public static int Pivot_Index1(int[] arr) {
-		int totalsum=0;
+		int totalsum = 0;
 		for (int i = 0; i < arr.length; i++) {
-			totalsum+=arr[i];
+			totalsum += arr[i];
 		}
-		int left=0;
+		int left = 0;
 		for (int i = 0; i < arr.length; i++) {
-			int right=totalsum-left-arr[i];
-			if(left==right) {
+			int right = totalsum - left - arr[i];
+			if (left == right) {
 				return i;
 			}
-			
+			left = left + arr[i];
 		}
 		return -1;
-		
+
 	}
 
 	public static int Pivot_Index(int[] arr) {
