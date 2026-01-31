@@ -8,7 +8,6 @@ public class Product_of_Array_Except_Self {
 			System.out.print(a[i] + " ");
 		}
 	}
-
 	public static int[] Product_of_Array(int[] arr) {
 		int n = arr.length;
 		// Prefix
