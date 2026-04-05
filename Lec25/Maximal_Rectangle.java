@@ -17,7 +17,7 @@ public class Maximal_Rectangle {
 					arr[j]++;
 				}
 				else {
-					//arr[j]=0;
+					arr[j]=0;
 				}
 				
 			}
