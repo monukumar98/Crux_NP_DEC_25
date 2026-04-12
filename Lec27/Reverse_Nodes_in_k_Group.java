@@ -35,6 +35,7 @@ public class Reverse_Nodes_in_k_Group {
 
 				// k element ko stack pop krke attach krna hai
 				if (st.size() == k) {
+					prevstart.next=null;
 					prevstart=head;
 					while (!st.isEmpty()) {
 						dummy.next = st.pop();
