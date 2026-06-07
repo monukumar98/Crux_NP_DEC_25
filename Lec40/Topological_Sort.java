@@ -28,35 +28,60 @@ public class Topological_Sort {
 		return in;
 
 	}
+
 	public void Topological() {
-		int [] in=Indegree();
+		int[] in = Indegree();
 		Queue<Integer> q = new LinkedList<>();
 		for (int i = 0; i < in.length; i++) {
-			if(in[i]==0) {
+			if (in[i] == 0) {
 				q.add(i);
 			}
 		}
-		while(!q.isEmpty()) {
-			int v=q.remove();
-			System.out.print(v+" ");
-			for(int nbrs:map.get(v)) {
+		while (!q.isEmpty()) {
+			int v = q.remove();
+			System.out.print(v + " ");
+			for (int nbrs : map.get(v)) {
 				in[nbrs]--;
-				if(in[nbrs]==0) {
+				if (in[nbrs] == 0) {
 					q.add(nbrs);
 				}
 			}
 		}
 	}
 
+	public boolean iscycle() {
+		int[] in = Indegree();
+		Queue<Integer> q = new LinkedList<>();
+		for (int i = 0; i < in.length; i++) {
+			if (in[i] == 0) {
+				q.add(i);
+			}
+		}
+		int c = 0;
+		while (!q.isEmpty()) {
+			int v = q.remove();
+			c++;
+			for (int nbrs : map.get(v)) {
+				in[nbrs]--;
+				if (in[nbrs] == 0) {
+					q.add(nbrs);
+				}
+			}
+		}
+		return c != map.size();
+	}
+	public static void main(String[] args) {
+		Topological_Sort ts = new Topological_Sort(8);
+		ts.AddEdge(1, 2);
+		ts.AddEdge(1, 0);
+		ts.AddEdge(1, 4);
+		ts.AddEdge(4, 3);
+		ts.AddEdge(3, 2);
+		ts.AddEdge(4, 5);
+		ts.AddEdge(5, 7);
+		ts.AddEdge(6, 3);
+		ts.AddEdge(6, 7);
+		ts.Topological();
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
